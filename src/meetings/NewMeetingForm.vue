@@ -36,3 +36,10 @@
         }
     }
 </script>
+
+
+<style scoped>
+.error {
+    color: #ff0000;
+}
+</style>
