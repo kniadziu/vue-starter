@@ -40,6 +40,6 @@
 
 <style scoped>
 .error {
-    color: #ff0000;
+    color: #1d65d2;
 }
 </style>
