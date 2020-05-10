@@ -23,8 +23,12 @@
             buttonLabelToDisplay() {
                 return this.buttonLabel || 'Zaloguj się';
             }
-
-            //opis
+            ,
+            mounted() {
+                if (!this.buttonLabel) {
+                    this.buttonLabel = 'Zaloguj się';
+                }
+            }
         }
     }
 </script>

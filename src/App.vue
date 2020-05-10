@@ -6,11 +6,10 @@
             <user-panel :username="authenticatedUsername" @logout="logMeOut()"></user-panel>
             <meetings-page></meetings-page>
         </div>
-
         <div v-else>
             <login-form @login="logMeIn($event)"></login-form>
-        </div>
 
+        </div>
     </div>
 </template>
 

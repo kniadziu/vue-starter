@@ -5,19 +5,30 @@
             <th width ="20%">Nazwa spotkania</th>
             <th width ="30%">Opis</th>
             <th width ="20%">Uczestnicy</th>
-            <th ></th>
-
-
+            <td ></td>
         </tr>
         </thead>
         <tbody>
         <tr v-for="meeting in meetings" :key="meeting.name">
-            <td width ="20%">{{ meeting.name }}</td>
-            <td>{{ meeting.description }}</td>
+            <td >{{ meeting.name }}</td>
             <td>{{ meeting.description }}</td>
             <td>
-                <button @click="registering = false" :class="registering ? 'class=float-right button-outline' : ''">Zapisz się</button>
-                <button @click="registering = true" :class="!registering ? 'class=float-right button-outline' : ''">Wypisz się</button>
+                <ul v-if="meeting.participants">
+                    <li v-for="user in meeting.participants" :key="user">
+                        {{ user }}
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <button v-if="meeting.participants.indexOf(username) < 0" class="button-outline"
+                        @click="this.$emit('register', meeting)" >Zapisz się
+                </button>
+
+                <button v-else class="button-outline" @click="this.$emit('unregister', meeting)">Wypisz się</button>
+
+                <button v-if="meeting.participants.length === 0" class="button" @click="this.$emit('delete', meeting)">
+                    Usuń puste spotkanie
+                </button>
 
             </td>
 
@@ -28,12 +39,9 @@
 
 <script>
     export default {
+        props: ['meetings', 'username'],
 
-        props: ['meetings', 'email'],
-        data(){
-            return {
-                registering: false
-            }
-        }
+
+
     }
 </script>

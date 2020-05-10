@@ -9,9 +9,12 @@
             Zaplanowane zajęcia ({{ meetings.length }})
         </h3>
         <meetings-list :meetings="meetings"
-        :email="email"
-        register="addParticipantToMeeting($event)"
-        unregister=""></meetings-list>
+                       :username="user"
+                       @register="addParticipantToMeeting($event)"
+                       @unregister="deleteParticipantFromMeeting($event)"
+                       @delete="deleteMeeting($event)"
+        >
+        </meetings-list>
     </div>
 </template>
 
@@ -21,7 +24,7 @@
 
     export default {
         components: {NewMeetingForm, MeetingsList},
-        props: ['email'],
+        props: ['user'],
         data() {
             return {
                 meetings: []
@@ -31,17 +34,19 @@
             addNewMeeting(meeting) {
                 this.meetings.push(meeting);
             },
+
+            addParticipantToMeeting(meeting) {
+                meeting.participants.push(this.user)
+            },
+
+            deleteParticipantFromMeeting(meeting) {
+                meeting.participants.splice(meeting.participants.indexOf(this.user), 1);
+            },
             deleteMeeting(meeeting) {
                 this.meetings.splice(this.meetings.indexOf(meeting),1);
-            },
-
-            addParticipantToMeeting(meeting){
-                meeting.participants.push()
-            },
-
-            deleteParticipantFromMeeting(){
-                meeting.participants.splice(meeting.participants.indexOf(this.email));
             }
+
+
         }
     }
 </script>
