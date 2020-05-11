@@ -1,6 +1,9 @@
 {
   "name": "vue-starter",
   "version": "0.1.0",
+   "engines": {
+    "node": "12.16.x"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -20,14 +23,7 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-
-
-{
-  "name": "vue-starter",
-  "description": "a really cool app",
-  "version": "1.0.0",
-  "engines": {
-    "node": "12.16.x"
-  }
+	]
+  
 }
+
