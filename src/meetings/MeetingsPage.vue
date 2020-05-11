@@ -50,7 +50,6 @@
 
                 let indexToRemoveMeeting = this.meetings.indexOf(meeting);
                 this.meetings.splice(indexToRemoveMeeting,1);
-                ;
             }
 
 

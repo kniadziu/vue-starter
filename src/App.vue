@@ -4,12 +4,13 @@
 
         <div v-if="authenticatedUsername">
             <user-panel :username="authenticatedUsername" @logout="logMeOut()"></user-panel>
-            <meetings-page :username="authenticatedUsername"></meetings-page>
+
         </div>
         <div v-else>
             <login-form @login="logMeIn($event)"></login-form>
 
         </div>
+        <meetings-page v-show="authenticatedUsername" :username="authenticatedUsername"></meetings-page>
       <!--  <meetings-page :username="authenticatedUsername"></meetings-page>
     -->
     </div>
