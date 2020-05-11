@@ -1,7 +1,7 @@
 {
   "name": "vue-starter",
   "version": "0.1.0",
-   "engines": {
+  "engines": {
     "node": "12.16.x"
   },
   "private": true,
@@ -23,7 +23,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-	]
-  
+  ]
 }
-
