@@ -17,9 +17,9 @@
     export default {
         data() {
             return {
-                newMeeting: {participants: []},
-                adding:false,
-                error:false,
+                newMeeting: { participants: [] },
+                adding: false,
+                error: false,
             };
         },
         methods: {
@@ -27,7 +27,7 @@
                 this.error = false;
                 if (this.newMeeting.name) {
                     this.$emit('added', this.newMeeting);
-                    this.newMeeting = {participants: []};
+                    this.newMeeting = { participants: [] };
                     this.adding = false;
                 } else {
                     this.error = true;
@@ -39,7 +39,7 @@
 
 
 <style scoped>
-.error {
-    color: #1d65d2;
-}
+    .error {
+        color: #1d65d2;
+    }
 </style>

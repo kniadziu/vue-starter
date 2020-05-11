@@ -4,12 +4,14 @@
 
         <div v-if="authenticatedUsername">
             <user-panel :username="authenticatedUsername" @logout="logMeOut()"></user-panel>
-            <meetings-page></meetings-page>
+            <meetings-page :username="authenticatedUsername"></meetings-page>
         </div>
         <div v-else>
             <login-form @login="logMeIn($event)"></login-form>
 
         </div>
+      <!--  <meetings-page :username="authenticatedUsername"></meetings-page>
+    -->
     </div>
 </template>
 
@@ -23,15 +25,16 @@
         components: {LoginForm, MeetingsPage, UserPanel},
         data() {
             return {
-                authenticatedUsername: '',
-            }
+                authenticatedUsername: ""
+            };
         },
         methods: {
             logMeIn(username) {
                 this.authenticatedUsername = username;
+              // alert(this.authenticatedUsername);
             },
             logMeOut() {
-                this.authenticatedUsername = '';
+                this.authenticatedUsername = "";
             }
         }
     }
