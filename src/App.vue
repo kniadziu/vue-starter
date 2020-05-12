@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <h1>Witaj w systemie do zapisów na zajęcia</h1>
 
